@@ -1,5 +1,19 @@
+import { About, Footer, Header, Skills, Testimonial, Work } from './container';
+import { Navbar } from './components';
+
 function App() {
-  return <h1 className='App'>Home</h1>;
+  return (
+    <div className='app'>
+      <Navbar />
+
+      <Header />
+      <About />
+      <Skills />
+      <Work />
+      <Testimonial />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

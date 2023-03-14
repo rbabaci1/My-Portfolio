@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Work.css';
+import './Work.scss';
 
 const Work = () => {
   return <div>Work</div>;
