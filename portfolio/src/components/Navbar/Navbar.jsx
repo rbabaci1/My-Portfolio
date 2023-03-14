@@ -28,9 +28,10 @@ const Navbar = () => {
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <HiX onClick={() => setToggle(false)} />
+
             <ul>
               {['home', 'about', 'work', 'skills', 'contact'].map(item => (
                 <li key={item}>

@@ -37,7 +37,7 @@
   list-style: none;
 
   li {
-    margin: 0 1.2rem;
+    margin: 0.3rem 1.2rem 0 1.2rem;
     cursor: pointer;
     flex-direction: column;
 
@@ -52,7 +52,6 @@
 
       &:hover {
         color: var(--secondary-color);
-        transition: border-bottom 0.3s ease-in-out;
       }
       &::after {
         content: '';
@@ -79,11 +78,11 @@
   height: 35px;
   border-radius: 50%;
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--secondary-color);
+  cursor: pointer;
 
   svg {
     width: 70%;
@@ -97,22 +96,17 @@
     bottom: 0;
     right: 0;
     z-index: 5;
-
     padding: 1rem;
-
     width: 80%;
     height: 100vh;
-
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
-
     background: url('../../assets/bgWhite.png');
     background-color: var(--white-color);
     background-size: cover;
     background-repeat: repeat;
-
     /* top box shadow */
     box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
 
@@ -120,6 +114,7 @@
       width: 35px;
       height: 35px;
       color: var(--secondary-color);
+      cursor: pointer;
       margin: 0.5rem 1rem;
     }
 
@@ -144,8 +139,24 @@
           font-size: 1rem;
           text-transform: uppercase;
           font-weight: 500;
-
           transition: all 0.3s ease-in-out;
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            color: var(--secondary-color);
+          }
+          &::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease-in-out;
+          }
+          &:hover::after {
+            width: 100%;
+            transition: width 0.3s ease-in-out;
+          }
 
           &:hover {
             color: var(--secondary-color);
