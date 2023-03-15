@@ -39,7 +39,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <h2 className='head-text' style={{ paddingTop: '4rem' }}>
+      <h2 className='head-text'>
         My Creative <span>Portfolio</span> Section
       </h2>
 
