@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavigationDots, SocialMedia } from '../components';
 
-const AppWrap = (Component, idName, classNames) =>
+const AppWrap = (Component, sectionName, classNames) =>
   function HOC() {
     return (
-      <div id={idName} className={`app__container ${classNames}`}>
+      <div id={sectionName} className={`app__container ${classNames}`}>
         <SocialMedia />
 
         <div className='app__wrapper app__flex'>
@@ -16,7 +16,7 @@ const AppWrap = (Component, idName, classNames) =>
           </div>
         </div>
 
-        <NavigationDots active={idName} />
+        <NavigationDots activeSection={sectionName} />
       </div>
     );
   };

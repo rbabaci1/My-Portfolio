@@ -105,12 +105,50 @@
   height: 100vh;
   padding: 1rem;
 
+  .twitter:hover {
+    background-color: #1d9bf0;
+    border-color: #1d9bf0;
+
+    svg {
+      color: #fff;
+    }
+  }
+  .facebook:hover {
+    background-color: #077aea;
+    border-color: #077aea;
+
+    svg {
+      color: #fff;
+    }
+  }
+  .instagram:hover {
+    background: linear-gradient(
+      to right,
+      #feda75,
+      #fa7e1e,
+      #d62976,
+      #962fbf,
+      #4f5bd5
+    );
+    border-color: linear-gradient(
+      to right,
+      #feda75,
+      #fa7e1e,
+      #d62976,
+      #962fbf,
+      #4f5bd5
+    );
+    svg {
+      color: #fff;
+    }
+  }
+
   div {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background-color: var(--white-color);
     margin: 0.25rem 0;
+    background-color: var(--white-color);
     border: 1px solid var(--lightGray-color);
     display: flex;
     justify-content: center;
@@ -119,18 +157,9 @@
     cursor: pointer;
 
     svg {
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       color: var(--gray-color);
-    }
-
-    &:hover {
-      background-color: var(--secondary-color);
-      border-color: var(--secondary-color);
-
-      svg {
-        color: var(--white-color);
-      }
     }
 
     @media screen and (min-width: 2000px) {

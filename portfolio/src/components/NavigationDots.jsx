@@ -1,9 +1,6 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/anchor-has-content */
-
 import React from 'react';
 
-const NavigationDots = ({ active }) => (
+const NavigationDots = ({ activeSection }) => (
   <div className='app__navigation'>
     {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
       (item, index) => (
@@ -11,7 +8,7 @@ const NavigationDots = ({ active }) => (
           href={`#${item}`}
           key={item + index}
           className='app__navigation-dot'
-          style={active === item ? { backgroundColor: '#313BAC' } : {}}
+          style={activeSection === item ? { backgroundColor: '#313BAC' } : {}}
         />
       )
     )}
