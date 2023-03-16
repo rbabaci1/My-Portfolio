@@ -47,7 +47,9 @@ const Footer = () => {
 
   return (
     <>
-      <h2 className='head-text'>Grab a coffee & chat with me</h2>
+      <h2 className='head-text'>
+        Let's chat over a <span>coffee</span>
+      </h2>
 
       <div className='app__footer-cards'>
         <div className='app__footer-card '>
@@ -107,9 +109,14 @@ const Footer = () => {
         </div>
       ) : (
         <div>
-          <h3 className='head-text'>Thank you for getting in touch!</h3>
+          <h3 className='head-text'>Thanks for getting in touch!</h3>
         </div>
       )}
+
+      <div className='copyright'>
+        <p className='p-text'>@2023 Rabah</p>
+        <p className='p-text'>All rights reserved</p>
+      </div>
     </>
   );
 };
