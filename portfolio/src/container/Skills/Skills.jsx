@@ -74,7 +74,7 @@ const Skills = () => {
                       id={work.name}
                       effect='solid'
                       arrowColor='#fff'
-                      place='right'
+                      // place='right'
                       className='skills-tooltip'
                     >
                       {work.desc}
