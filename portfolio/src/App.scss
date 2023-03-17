@@ -164,6 +164,10 @@
     text-transform: uppercase;
     color: var(--black-color);
   }
+
+  @media screen and (max-width: 500px) {
+    padding-right: 0;
+  }
 }
 
 .head-text {
