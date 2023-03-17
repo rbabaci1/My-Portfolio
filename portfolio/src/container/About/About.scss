@@ -46,4 +46,11 @@
   @media screen and (max-width: 500px) {
     width: 90%;
   }
+
+  @media (hover: none), (pointer: coarse) {
+    /* disable hover animations for touch devices */
+    & {
+      box-shadow: none !important;
+    }
+  }
 }
