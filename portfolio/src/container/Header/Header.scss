@@ -160,6 +160,10 @@
       margin: 1rem;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }
 
 .app__header-img {
