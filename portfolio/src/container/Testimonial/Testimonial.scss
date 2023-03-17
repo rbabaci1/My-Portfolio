@@ -3,11 +3,16 @@
   width: 100%;
   flex-direction: column;
   padding: 2rem 0;
+
+  h2 {
+    padding: 2rem 0 4rem 0;
+  }
 }
 
 .app__testimonial-item {
-  width: 60%;
-  min-height: 320px;
+  min-height: 330px;
+
+  max-width: 780px;
   background-color: var(--white-color);
   display: flex;
   flex-direction: row;
@@ -34,8 +39,7 @@
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    width: 90%;
-    height: 600px;
+    margin: 0 2rem;
   }
 }
 
@@ -76,6 +80,10 @@
   @media screen and (max-width: 600px) {
     margin-top: 2rem;
     padding: 0;
+
+    p {
+      height: 360px;
+    }
   }
 }
 
