@@ -43,7 +43,7 @@ const Portfolio = () => {
         My Creative <span>Portfolio</span> Section
       </h2>
 
-      <div className='app__work-filter'>
+      <div className='app__work-filter app__flex'>
         {['All', 'React JS', 'Web App', 'UI/UX'].map((item, index) => (
           <div
             key={index}
