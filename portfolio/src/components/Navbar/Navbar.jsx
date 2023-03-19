@@ -11,7 +11,13 @@ const Navbar = () => {
   return (
     <nav className='app__navbar'>
       <div className='app__navbar-logo'>
-        <img src={images.logo} alt='logo' />
+        <img
+          src={images.logo}
+          alt='logo'
+          onClick={() => {
+            window.scroll(0, 0);
+          }}
+        />
       </div>
 
       <ul className='app__navbar-links'>
