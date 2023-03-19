@@ -57,45 +57,43 @@ const Skills = () => {
           ))}
         </motion.div> */}
 
-        <div className='app__skills-exp'>
-          <VerticalTimeline>
-            {experiences.map((experience, i) => (
-              <VerticalTimelineElement
-                contentStyle={{
-                  background: '#fff',
-                  color: '#313bac',
-                  padding: '1rem 2rem',
-                }}
-                contentArrowStyle={{ borderRight: '7px solid  #313bac' }}
-                date={experience.year}
-                iconStyle={{ background: '#fff' }}
-                icon={
-                  <div className='exp-icon'>
-                    <img src={amazon} alt={'test' + i} />
-                  </div>
-                }
-                key={experience._id}
-              >
-                <motion.div className='app__skills-exp-item'>
-                  <motion.div className='app__skills-exp-works'>
-                    {experience.works.map(work => (
-                      <div key={work._key}>
-                        <motion.div
-                          whileInView={{ opacity: [0, 1] }}
-                          transition={{ duration: 0.5 }}
-                          className='app__skills-exp-work'
-                        >
-                          <h4 className='bold-text'>{work.name}</h4>
-                          <p className='p-text'>{work.company}</p>
-                        </motion.div>
-                      </div>
-                    ))}
-                  </motion.div>
+        <VerticalTimeline className='app__skills-exp' lineColor='#edf2f8'>
+          {experiences.map((experience, i) => (
+            <VerticalTimelineElement
+              contentStyle={{
+                background: '#edf2f8',
+                color: '#313bac',
+                padding: '1rem 2rem',
+              }}
+              contentArrowStyle={{ borderRight: '7px solid  #313bac' }}
+              date={experience.year}
+              iconStyle={{ background: '#edf2f8' }}
+              icon={
+                <div className='exp-icon'>
+                  <img src={amazon} alt={'test' + i} />
+                </div>
+              }
+              key={experience._id}
+            >
+              <motion.div className='app__skills-exp-item'>
+                <motion.div className='app__skills-exp-works'>
+                  {experience.works.map(work => (
+                    <div key={work._key}>
+                      <motion.div
+                        whileInView={{ opacity: [0, 1] }}
+                        transition={{ duration: 0.5 }}
+                        className='app__skills-exp-work'
+                      >
+                        <h4 className='bold-text'>{work.name}</h4>
+                        <p className='p-text'>{work.company}</p>
+                      </motion.div>
+                    </div>
+                  ))}
                 </motion.div>
-              </VerticalTimelineElement>
-            ))}
-          </VerticalTimeline>
-        </div>
+              </motion.div>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
       </div>
     </>
   );
@@ -104,5 +102,5 @@ const Skills = () => {
 export default AppWrap(
   MotionWrap(Skills, 'app__skills'),
   'skills',
-  'app__primarybg'
+  'app__whitebg'
 );
