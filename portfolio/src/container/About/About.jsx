@@ -34,19 +34,15 @@ const About = () => {
           real-world problems. Let's work together to bring your ideas to life!
         </p>
       </motion.div>
-      {/* <h2 className='head-text app__about-header'>
-        Hi again! <span>Nice to meet you.</span>
-      </h2> */}
 
       <div className='app__profiles'>
         {abouts.map((about, index) => (
-          <Tilt>
+          <Tilt key={`${about.title}-${index}`}>
             <motion.div
               whileInView={{ opacity: 1 }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.5, type: 'spring' }}
               className='app__profile-item'
-              key={`${about.title}-${index}`}
             >
               <img src={urlFor(about.imgUrl)} alt={about.title} />
 
