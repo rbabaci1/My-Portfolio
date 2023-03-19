@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Tooltip } from 'react-tooltip';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../client';
-import './Skills.scss';
-import 'react-vertical-timeline-component/style.min.css';
-
+import { client } from '../../client';
 import amazon from '../../assets/amazon.png';
+import './Skills.scss';
+
+import 'react-vertical-timeline-component/style.min.css';
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -38,25 +37,6 @@ const Skills = () => {
       </div>
 
       <div className='app__skills-container'>
-        {/* <motion.div className='app__skills-list'>
-          {skills.map(skill => (
-            <motion.div
-              whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }}
-              className='app__skills-item app__flex'
-              key={skill.name}
-            >
-              <div
-                className='app__flex'
-                style={{ backgroundColor: skill.bgColor }}
-              >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
-              </div>
-              <p className='p-text'>{skill.name}</p>
-            </motion.div>
-          ))}
-        </motion.div> */}
-
         <VerticalTimeline className='app__skills-exp' lineColor='#edf2f8'>
           {experiences.map((experience, i) => (
             <VerticalTimelineElement
@@ -66,15 +46,16 @@ const Skills = () => {
                 padding: '1rem 2rem',
               }}
               contentArrowStyle={{ borderRight: '7px solid  #313bac' }}
-              date={experience.year}
-              iconStyle={{ background: '#edf2f8' }}
               icon={
                 <div className='exp-icon'>
                   <img src={amazon} alt={'test' + i} />
                 </div>
               }
+              date={experience.year}
+              iconStyle={{ background: '#edf2f8' }}
               key={experience._id}
             >
+              <div>Test</div>
               <motion.div className='app__skills-exp-item'>
                 <motion.div className='app__skills-exp-works'>
                   {experience.works.map(work => (

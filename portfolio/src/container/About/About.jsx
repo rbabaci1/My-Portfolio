@@ -5,6 +5,7 @@ import Tilt from 'react-parallax-tilt';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
 import { urlFor, client } from '../../client';
+import Techs from '../../components/Techs/Techs';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -57,6 +58,8 @@ const About = () => {
           </Tilt>
         ))}
       </div>
+
+      <Techs />
     </>
   );
 };
