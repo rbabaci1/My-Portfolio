@@ -4,6 +4,17 @@
   flex-direction: column;
   padding: 3rem 0;
 
+  .app__exp-header {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: flex-start;
+
+    .p-text {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
   @media screen and (max-width: 500px) {
     padding: 3rem 0 0 0;
   }
@@ -84,6 +95,20 @@
 
 .app__skills-exp {
   flex: 1;
+
+  .exp-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
+  }
 
   @media screen and (max-width: 900px) {
     margin-top: 2rem;

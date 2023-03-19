@@ -37,25 +37,23 @@ const About = () => {
 
       <div className='app__profiles'>
         {abouts.map((about, index) => (
-          <Tilt key={`${about.title}-${index}`}>
-            <motion.div
-              whileInView={{ opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.5, type: 'spring' }}
-              className='app__profile-item'
-            >
-              <img src={urlFor(about.imgUrl)} alt={about.title} />
+          <Tilt
+            key={`${about.title}-${index}`}
+            scale={1.1}
+            transitionSpeed={500}
+            className='app__profile-item'
+          >
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
 
-              <div className='details'>
-                <h2 className='bold-text' style={{ marginTop: 15 }}>
-                  {about.title}
-                </h2>
+            <div className='details'>
+              <h2 className='bold-text' style={{ marginTop: 15 }}>
+                {about.title}
+              </h2>
 
-                <p className='p-text' style={{ marginTop: 10 }}>
-                  {about.description}
-                </p>
-              </div>
-            </motion.div>
+              <p className='p-text' style={{ marginTop: 10 }}>
+                {about.description}
+              </p>
+            </div>
           </Tilt>
         ))}
       </div>
