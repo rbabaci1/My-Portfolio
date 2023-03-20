@@ -5,7 +5,7 @@ const NavigationDots = () => {
 
   return (
     <div className='app__navigation'>
-      {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map(
+      {['home', 'about', 'work', 'experiences', 'testimonial', 'contact'].map(
         (item, index) => (
           <a
             onClick={() => setActive(item)}

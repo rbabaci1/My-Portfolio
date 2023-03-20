@@ -12,20 +12,14 @@ import './Skills.scss';
 
 import 'react-vertical-timeline-component/style.min.css';
 
-const Skills = () => {
+const Experiences = () => {
   const [experiences, setExperiences] = useState([]);
-  const [skills, setSkills] = useState([]);
 
   useEffect(() => {
     const query = '*[_type == "experiences"]';
-    const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then(data => {
       setExperiences(data);
-    });
-
-    client.fetch(skillsQuery).then(data => {
-      setSkills(data);
     });
   }, []);
 
@@ -36,8 +30,8 @@ const Skills = () => {
         <h2 className='head-text'>Work Experience</h2>
       </div>
 
-      <div className='app__skills-container'>
-        <VerticalTimeline className='app__skills-exp' lineColor='#edf2f8'>
+      <div className='app__experiences-container'>
+        <VerticalTimeline className='app__exp' lineColor='#edf2f8'>
           {experiences.map((experience, i) => (
             <VerticalTimelineElement
               contentStyle={{
@@ -55,15 +49,14 @@ const Skills = () => {
               iconStyle={{ background: '#edf2f8' }}
               key={experience._id}
             >
-              <div>Test</div>
-              <motion.div className='app__skills-exp-item'>
-                <motion.div className='app__skills-exp-works'>
+              <motion.div className='app__exp-item'>
+                <motion.div className='app__exp-works'>
                   {experience.works.map(work => (
                     <div key={work._key}>
                       <motion.div
                         whileInView={{ opacity: [0, 1] }}
                         transition={{ duration: 0.5 }}
-                        className='app__skills-exp-work'
+                        className='app__exp-work'
                       >
                         <h4 className='bold-text'>{work.name}</h4>
                         <p className='p-text'>{work.company}</p>
@@ -81,7 +74,7 @@ const Skills = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Skills, 'app__skills'),
-  'skills',
+  MotionWrap(Experiences, 'app__experiences'),
+  'experiences',
   'app__whitebg'
 );

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import './About.scss';
 import { urlFor, client } from '../../client';
 import Techs from '../../components/Techs/Techs';
+import './About.scss';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
