@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
+import { EarthCanvas } from '../../components/canvas';
 import './Footer.scss';
 
 const Footer = () => {
@@ -31,13 +33,7 @@ const Footer = () => {
       message: formData.message,
     };
 
-    client
-      .create(contact)
-      .then(() => {
-        setLoading(false);
-        setIsFormSubmitted(true);
-      })
-      .catch(err => console.log(err));
+    //! send email
 
     // Reset form after 10 seconds
     setTimeout(() => {
@@ -46,18 +42,26 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <>
       <h2 className='head-text'>
         Let's chat over a <span>coffee</span>
       </h2>
 
-      <div className='app_contact-main'>
-        <div>
+      <div className='app__contact-main'>
+        <motion.div
+          whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+          transition={{ duration: 0.5 }}
+          className='app__contact-form-container'
+        >
           <div className='app__footer-cards'>
             <div className='app__footer-card '>
               <img src={images.email} alt='email' />
 
-              <a href='4rabah@gmail.com' className='p-text'>
+              <a
+                href='mailto:4rabah@gmail.com'
+                target='_blank'
+                className='p-text'
+              >
                 4rabah@gmail.com
               </a>
             </div>
@@ -114,16 +118,16 @@ const Footer = () => {
               <h3 className='head-text'>Thanks for getting in touch!</h3>
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className='app__3d-earth'></div>
+        <div className='app__3d-earth'>{/* <EarthCanvas /> */}</div>
       </div>
 
       <div className='copyright'>
         <p className='p-text'>@2023 Rabah</p>
         <p className='p-text'>All rights reserved</p>
       </div>
-    </div>
+    </>
   );
 };
 
