@@ -13,17 +13,22 @@
 }
 
 .app__contact-main {
-  border: 1px solid red;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
-  padding: 0 4rem;
+  padding: 2rem 4rem 0 4rem;
 
   .app__contact-form-container {
-    border: 1px solid;
-    // width: 50%;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 2rem;
+    max-width: 550px;
+    box-shadow: 0 0 25px #fef4f5;
+    margin-top: 2rem;
+    border-radius: 10px;
 
     .app__footer-cards {
       display: flex;
@@ -32,25 +37,28 @@
 
       .app__footer-card:first-child {
         margin-right: 1rem;
+
+        @media screen and (max-width: 768px) {
+          margin: 0 0 1rem 0;
+        }
       }
 
       .app__footer-card {
-        min-width: 250px;
+        min-width: 200px;
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         align-items: center;
         margin: 1rem 0;
-        padding: 1rem;
+        padding: 1rem 0.5rem;
         border-radius: 10px;
         cursor: pointer;
         background-color: #fef4f5;
         transition: all 0.3s ease-in-out;
 
         img {
-          width: 40px;
-          height: 40px;
-          margin: 0 0.7rem;
+          width: 30px;
+          height: 30px;
         }
 
         p {
@@ -62,6 +70,20 @@
         }
         &:hover {
           box-shadow: 0 0 25px #fef4f5;
+        }
+
+        @media screen and (max-width: 768px) {
+          padding: 0.7rem 0.5rem;
+        }
+
+        @media screen and (max-width: 650px) {
+          width: 100%;
+          justify-content: center;
+          margin: 0;
+
+          img {
+            margin-right: 1rem;
+          }
         }
 
         @media screen and (max-width: 450px) {
@@ -87,7 +109,6 @@
 
       div {
         width: 100%;
-
         margin: 1rem 0;
         border-radius: 10px;
         cursor: pointer;
@@ -141,12 +162,56 @@
       @media screen and (max-width: 768px) {
         width: 100%;
         margin: 1rem 0;
+
+        div {
+          margin: 0.5rem 0;
+        }
       }
     }
   }
 
   .app__3d-earth {
-    width: 50%;
-    border: 1px solid blue;
+    width: 460px;
+  }
+  .app__3d-earth {
+    height: 550px;
+  }
+
+  @media screen and (max-width: 1080px) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .app__contact-form-container {
+      max-width: none;
+      width: 80%;
+      margin: 0;
+    }
+    .app__3d-earth {
+      width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .app__contact-form-container,
+    .app__3d-earth {
+      width: 90%;
+    }
+    .app__contact-form-container {
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .app__3d-earth {
+      height: 450px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 0;
+
+    .app__3d-earth {
+      height: 350px;
+    }
   }
 }

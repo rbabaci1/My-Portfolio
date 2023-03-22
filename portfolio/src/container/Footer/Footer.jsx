@@ -23,7 +23,8 @@ const Footer = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     setLoading(true);
 
     const contact = {
@@ -44,7 +45,7 @@ const Footer = () => {
   return (
     <>
       <h2 className='head-text'>
-        Let's chat over a <span>coffee</span>
+        Get in <span>touch!</span>
       </h2>
 
       <div className='app__contact-main'>
@@ -76,7 +77,10 @@ const Footer = () => {
           </div>
 
           {!isFormSubmitted ? (
-            <div className='app__footer-form app__flex'>
+            <form
+              className='app__footer-form app__flex'
+              onSubmit={handleSubmit}
+            >
               <div className='app__flex'>
                 <input
                   className='p-text'
@@ -85,6 +89,7 @@ const Footer = () => {
                   name='username'
                   value={username}
                   onChange={handleChangeInput}
+                  required
                 />
               </div>
 
@@ -96,6 +101,7 @@ const Footer = () => {
                   name='email'
                   value={email}
                   onChange={handleChangeInput}
+                  required
                 />
               </div>
 
@@ -106,13 +112,14 @@ const Footer = () => {
                   value={message}
                   name='message'
                   onChange={handleChangeInput}
+                  required
                 />
               </div>
 
-              <button type='button' className='p-text' onClick={handleSubmit}>
+              <button type='submit' className='p-text'>
                 {!loading ? 'Send Message' : 'Sending...'}
               </button>
-            </div>
+            </form>
           ) : (
             <div>
               <h3 className='head-text'>Thanks for getting in touch!</h3>
@@ -120,7 +127,13 @@ const Footer = () => {
           )}
         </motion.div>
 
-        <div className='app__3d-earth'>{/* <EarthCanvas /> */}</div>
+        <motion.div
+          className='app__3d-earth'
+          whileInView={{ x: [100, 0], opacity: [0, 1] }}
+          transition={{ duration: 0.5 }}
+        >
+          <EarthCanvas />
+        </motion.div>
       </div>
 
       <div className='copyright'>
