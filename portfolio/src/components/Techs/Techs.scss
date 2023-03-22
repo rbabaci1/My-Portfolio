@@ -1,0 +1,32 @@
+.app__skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  width: 88%;
+
+  @media screen and (max-width: 900px) {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding-top: 0;
+  }
+}
+
+.app__skills-item {
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem;
+  transition: all 0.3s ease-in-out;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    margin: 0.2rem;
+  }
+}

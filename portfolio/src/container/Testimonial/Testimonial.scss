@@ -11,7 +11,6 @@
 
 .app__testimonial-item {
   min-height: 330px;
-
   max-width: 780px;
   background-color: var(--white-color);
   display: flex;
@@ -35,6 +34,11 @@
       width: 150px;
       height: 150px;
     }
+  }
+
+  @media screen and (max-width: 1024px) {
+    min-height: 380px;
+    margin: 0 4rem;
   }
 
   @media screen and (max-width: 600px) {
