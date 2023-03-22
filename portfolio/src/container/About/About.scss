@@ -21,9 +21,17 @@
       width: 55%;
     }
 
+    @media screen and (max-width: 1024px) {
+      width: 75%;
+
+      :nth-child(3) {
+        width: 100%;
+      }
+    }
+
     @media screen and (max-width: 500px) {
       padding: 3rem 0 0 0;
-      width: 85%;
+      width: 83%;
 
       :nth-child(3) {
         width: 100%;

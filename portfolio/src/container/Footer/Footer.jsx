@@ -50,7 +50,7 @@ const Footer = () => {
 
       <div className='app__contact-main'>
         <motion.div
-          whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+          whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.5 }}
           className='app__contact-form-container'
         >
@@ -129,7 +129,7 @@ const Footer = () => {
 
         <motion.div
           className='app__3d-earth'
-          whileInView={{ x: [100, 0], opacity: [0, 1] }}
+          whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 0.5 }}
         >
           <EarthCanvas />
