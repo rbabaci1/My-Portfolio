@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
+import Tilt from 'react-parallax-tilt';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
@@ -43,7 +44,7 @@ const Portfolio = () => {
         My Creative <span>Portfolio</span> Section
       </h2>
 
-      <div className='app__work-filter'>
+      <div className='app__work-filter app__flex'>
         {['All', 'React JS', 'Web App', 'UI/UX'].map((item, index) => (
           <div
             key={index}
@@ -63,41 +64,38 @@ const Portfolio = () => {
         className='app__work-portfolio'
       >
         {filteredWorks.map((work, index) => (
-          <div className='app__work-item app__flex' key={index}>
+          <Tilt
+            className='app__work-item app__flex'
+            scale={1.1}
+            transitionSpeed={500}
+            key={`${work.title}-${index}`}
+          >
             <div className='app__work-img app__flex'>
               <img src={urlFor(work.imgUrl)} alt={work.title} />
 
-              <motion.div
-                whileHover={{ opacity: [0, 1] }}
-                transition={{
-                  duration: 0.25,
-                  ease: 'easeInOut',
-                  staggerChildren: 0.5,
-                }}
-                className='app__work-hover app__flex'
-              >
-                <a href={work.projectLink} target='_blank' rel='noreferrer'>
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className='app__flex'
-                  >
+              <div className='app__work-hover app__flex'>
+                <motion.div
+                  whileInView={{ scale: [0, 1] }}
+                  whileHover={{ scale: [1, 0.9] }}
+                  transition={{ duration: 0.25 }}
+                  className='app__flex'
+                >
+                  <a href={work.projectLink} target='_blank' rel='noreferrer'>
                     <AiFillEye />
-                  </motion.div>
-                </a>
+                  </a>
+                </motion.div>
 
-                <a href={work.codeLink} target='_blank' rel='noreferrer'>
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
-                    className='app__flex'
-                  >
+                <motion.div
+                  whileInView={{ scale: [0, 1] }}
+                  whileHover={{ scale: [1, 0.9] }}
+                  transition={{ duration: 0.25 }}
+                  className='app__flex'
+                >
+                  <a href={work.codeLink} target='_blank' rel='noreferrer'>
                     <AiFillGithub />
-                  </motion.div>
-                </a>
-              </motion.div>
+                  </a>
+                </motion.div>
+              </div>
             </div>
 
             <div className='app__work-content app__flex'>
@@ -111,7 +109,7 @@ const Portfolio = () => {
                 <p className='p-text'>{work?.tags[0]}</p>
               </div>
             </div>
-          </div>
+          </Tilt>
         ))}
       </motion.div>
     </>

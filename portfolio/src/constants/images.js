@@ -1,7 +1,6 @@
 import email from '../assets/email.png';
 import mobile from '../assets/mobile.png';
 import api from '../assets/api.png';
-import cpp from '../assets/cpp.png';
 import css from '../assets/css.png';
 import figma from '../assets/figma.png';
 import flutter from '../assets/flutter.png';
@@ -35,11 +34,28 @@ import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
 
+export const techs = [
+  css,
+  figma,
+  flutter,
+  git,
+  graphql,
+  html,
+  javascript,
+  mu5,
+  node,
+  python,
+  react,
+  redux,
+  sass,
+  typescript,
+  vue,
+];
+
 export default {
   email,
   mobile,
   api,
-  cpp,
   css,
   figma,
   flutter,
