@@ -2,7 +2,7 @@ import {
   About,
   Footer,
   Header,
-  Skills,
+  Experience,
   Testimonial,
   Portfolio,
 } from './container';
@@ -17,7 +17,7 @@ function App() {
       <Header />
       <About />
       <Portfolio />
-      <Skills />
+      <Experience />
       <Testimonial />
       <Footer />
     </div>

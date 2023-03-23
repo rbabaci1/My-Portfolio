@@ -6,9 +6,8 @@ import {
 } from 'react-vertical-timeline-component';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
-import amazon from '../../assets/amazon.png';
-import './Skills.scss';
+import { client, urlFor } from '../../client';
+import './Experience.scss';
 
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -32,7 +31,7 @@ const Experiences = () => {
 
       <div className='app__experiences-container'>
         <VerticalTimeline className='app__exp' lineColor='#edf2f8'>
-          {experiences.map((experience, i) => (
+          {experiences.map(experience => (
             <VerticalTimelineElement
               contentStyle={{
                 background: '#edf2f8',
@@ -41,29 +40,28 @@ const Experiences = () => {
               }}
               contentArrowStyle={{ borderRight: '7px solid  #313bac' }}
               icon={
-                <div className='exp-icon'>
-                  <img src={amazon} alt={'test' + i} />
+                <div className='app__exp-icon'>
+                  <img
+                    src={urlFor(experience.imgUrl)}
+                    alt={`${experience.company} logo`}
+                  />
                 </div>
               }
               date={experience.year}
               iconStyle={{ background: '#edf2f8' }}
               key={experience._id}
             >
-              <motion.div className='app__exp-item'>
-                <motion.div className='app__exp-works'>
-                  {experience.works.map(work => (
-                    <div key={work._key}>
-                      <motion.div
-                        whileInView={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.5 }}
-                        className='app__exp-work'
-                      >
-                        <h4 className='bold-text'>{work.name}</h4>
-                        <p className='p-text'>{work.company}</p>
-                      </motion.div>
-                    </div>
-                  ))}
-                </motion.div>
+              <motion.div
+                whileInView={{ opacity: [0, 1] }}
+                transition={{ duration: 0.5 }}
+                className='app__exp-item'
+              >
+                <div className='exp-item-header'>
+                  <h4 className='bold-text'>{experience.title}</h4>
+                  <p className='p-text'>{experience.company}</p>
+                </div>
+
+                <p className='p-text'>{experience.desc}</p>
               </motion.div>
             </VerticalTimelineElement>
           ))}

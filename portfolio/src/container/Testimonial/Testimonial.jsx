@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
+import { brands } from '../../constants';
 import './Testimonial.scss';
 
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testimonials, setTestimonials] = useState([]);
-  const [brands, setBrands] = useState([]);
 
   const handleClick = value => {
     if (value === -1) {
@@ -24,14 +24,9 @@ const Testimonial = () => {
 
   useEffect(() => {
     const query = '*[_type == "testimonials"]';
-    const brandsQuery = '*[_type == "brands"]';
 
     client.fetch(query).then(data => {
       setTestimonials(data);
-    });
-
-    client.fetch(brandsQuery).then(data => {
-      setBrands(data);
     });
   }, []);
 
@@ -69,13 +64,13 @@ const Testimonial = () => {
       )}
 
       <div className='app__testimonial-brands app__flex'>
-        {brands.map(brand => (
+        {brands.map((brand, i) => (
           <motion.div
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 0.5, type: 'tween' }}
-            key={brand._id}
+            key={`${brand}-${i}`}
           >
-            <img src={urlFor(brand.imgUrl)} alt={brand.name} />
+            <img src={brand} alt={brand} />
           </motion.div>
         ))}
       </div>

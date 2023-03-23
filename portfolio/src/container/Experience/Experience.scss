@@ -55,7 +55,7 @@
 .app__exp {
   flex: 1;
 
-  .exp-icon {
+  .app__exp-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,45 +80,27 @@
 }
 
 .app__exp-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
   width: 100%;
   margin: 1rem 0;
-}
 
-.app__exp-works {
-  flex: 1;
-
-  .app__exp-work {
+  .exp-item-header {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--lightGray-color);
 
-    h4 {
+    .bold-text {
       font-weight: 500;
     }
 
-    p {
+    .p-text {
       font-weight: 400;
+      background-color: var(--secondary-color);
+      padding: 0 0.5rem;
+      border-radius: 10px;
+      margin: 0 0 0 1.5rem;
       color: var(--gray-color);
-      margin-top: 5px;
+      color: white;
     }
   }
 }
-
-// .app__exp-year {
-//   margin-right: 3rem;
-//   width: 34px;
-
-//   p {
-//     font-weight: 800;
-//     color: var(--secondary-color);
-//   }
-
-//   @media screen and (max-width: 450px) {
-//     margin-right: 1rem;
-//   }
-// }

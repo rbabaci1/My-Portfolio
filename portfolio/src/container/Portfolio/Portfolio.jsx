@@ -8,17 +8,17 @@ import { urlFor, client } from '../../client';
 import './Portfolio.scss';
 
 const Portfolio = () => {
-  const [works, setWorks] = useState([]);
-  const [filteredWorks, setFilteredWorks] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [filteredProjects, setFilteredProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "projects"]';
 
     client.fetch(query).then(data => {
-      setWorks(data);
-      setFilteredWorks(data);
+      setProjects(data);
+      setFilteredProjects(data);
     });
   }, []);
 
@@ -31,9 +31,11 @@ const Portfolio = () => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
       if (item === 'All') {
-        setFilteredWorks(works);
+        setFilteredProjects(projects);
       } else {
-        setFilteredWorks(works.filter(work => work.tags.includes(item)));
+        setFilteredProjects(
+          projects.filter(project => project.tags.includes(item))
+        );
       }
     }, 500);
   };
@@ -44,12 +46,12 @@ const Portfolio = () => {
         My Creative <span>Portfolio</span> Section
       </h2>
 
-      <div className='app__work-filter app__flex'>
+      <div className='app__project-filter app__flex'>
         {['All', 'React JS', 'Web App', 'UI/UX'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${
+            className={`app__project-filter-item app__flex p-text ${
               activeFilter === item ? 'item-active' : ''
             }`}
           >
@@ -61,26 +63,30 @@ const Portfolio = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className='app__work-portfolio'
+        className='app__project-portfolio'
       >
-        {filteredWorks.map((work, index) => (
+        {filteredProjects.map((project, index) => (
           <Tilt
-            className='app__work-item app__flex'
+            className='app__project-item app__flex'
             scale={1.1}
             transitionSpeed={500}
-            key={`${work.title}-${index}`}
+            key={`${project.title}-${index}`}
           >
-            <div className='app__work-img app__flex'>
-              <img src={urlFor(work.imgUrl)} alt={work.title} />
+            <div className='app__project-img app__flex'>
+              <img src={urlFor(project.imgUrl)} alt={project.title} />
 
-              <div className='app__work-hover app__flex'>
+              <div className='app__project-hover app__flex'>
                 <motion.div
                   whileInView={{ scale: [0, 1] }}
                   whileHover={{ scale: [1, 0.9] }}
                   transition={{ duration: 0.25 }}
                   className='app__flex'
                 >
-                  <a href={work.projectLink} target='_blank' rel='noreferrer'>
+                  <a
+                    href={project.projectLink}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
                     <AiFillEye />
                   </a>
                 </motion.div>
@@ -91,22 +97,22 @@ const Portfolio = () => {
                   transition={{ duration: 0.25 }}
                   className='app__flex'
                 >
-                  <a href={work.codeLink} target='_blank' rel='noreferrer'>
+                  <a href={project.codeLink} target='_blank' rel='noreferrer'>
                     <AiFillGithub />
                   </a>
                 </motion.div>
               </div>
             </div>
 
-            <div className='app__work-content app__flex'>
-              <h4 className='bold-text'>{work.title}</h4>
+            <div className='app__project-content app__flex'>
+              <h4 className='bold-text'>{project.title}</h4>
 
               <p className='p-text' style={{ marginTop: 10 }}>
-                {work.description}
+                {project.description}
               </p>
 
-              <div className='app__work-tag app__flex'>
-                <p className='p-text'>{work?.tags[0]}</p>
+              <div className='app__project-tag app__flex'>
+                <p className='p-text'>{project?.tags[0]}</p>
               </div>
             </div>
           </Tilt>
@@ -117,7 +123,7 @@ const Portfolio = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Portfolio, 'app__works'),
-  'work',
+  MotionWrap(Portfolio, 'app__projects'),
+  'portfolio',
   'app__primarybg'
 );
