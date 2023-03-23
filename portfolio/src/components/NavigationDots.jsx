@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const NavigationDots = () => {
-  const [active, setActive] = useState('home');
-
+const NavigationDots = ({ activeSection, setActiveSection }) => {
   return (
     <div className='app__navigation'>
       {['home', 'about', 'work', 'experiences', 'testimonial', 'contact'].map(
         (item, index) => (
           <a
-            onClick={() => setActive(item)}
+            onClick={() => setActiveSection(item)}
             href={`#${item}`}
             key={item + index}
             className='app__navigation-dot'
-            style={active === item ? { backgroundColor: '#313BAC' } : {}}
+            style={activeSection === item ? { backgroundColor: '#313BAC' } : {}}
           />
         )
       )}

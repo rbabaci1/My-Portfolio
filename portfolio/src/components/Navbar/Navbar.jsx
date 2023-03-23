@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
+import NavigationDots from '../NavigationDots';
 import { images } from '../../constants';
 import './Navbar.scss';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   return (
     <nav className='app__navbar'>
+      <NavigationDots
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+      />
+
       <div className='app__navbar-logo'>
         <img
           src={images.logo}
@@ -22,7 +29,11 @@ const Navbar = () => {
 
       <ul className='app__navbar-links'>
         {['home', 'about', , 'work', 'contact'].map(item => (
-          <li className='app__flex p-text' key={`link-${item}`}>
+          <li
+            className='app__flex p-text'
+            key={`link-${item}`}
+            onClick={() => setActiveSection(item)}
+          >
             <a href={`#${item}`}>{item}</a>
           </li>
         ))}

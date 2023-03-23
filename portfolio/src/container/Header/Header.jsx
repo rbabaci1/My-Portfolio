@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
-import { SocialMedia, NavigationDots } from '../../components';
+import { SocialMedia } from '../../components';
 import './Header.scss';
 
 const scaleVariants = {
@@ -16,12 +16,11 @@ const scaleVariants = {
     },
   },
 };
-const { profile, circle, react, node, sass } = images;
+const { profile, circle, javascript, html, css } = images;
 
 const Header = () => (
   <>
     <SocialMedia />
-    <NavigationDots />
 
     <div className='app__header app__flex'>
       <motion.div
@@ -67,7 +66,7 @@ const Header = () => (
         whileInView={scaleVariants.whileInView}
         className='app__header-circles'
       >
-        {[node, react, sass].map((circle, index) => (
+        {[css, javascript, html].map((circle, index) => (
           <div className='circle-cmp app__flex' key={`circle-${index}`}>
             <img src={circle} alt='profile_bg' />
           </div>
