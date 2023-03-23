@@ -145,7 +145,7 @@
         font-weight: 500;
         color: var(--white-color);
         outline: none;
-        margin: 2rem 0 0 0;
+        margin-top: 1rem;
         font-family: var(--font-base);
         transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
         cursor: pointer;
@@ -176,6 +176,25 @@
   }
   .app__3d-earth {
     height: 550px;
+  }
+
+  .app__footer-msg-submitted {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .p-text {
+      margin-top: 2rem;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      width: fit-content;
+      cursor: pointer;
+
+      &:hover {
+        color: blue;
+      }
+    }
   }
 
   @media screen and (max-width: 1080px) {

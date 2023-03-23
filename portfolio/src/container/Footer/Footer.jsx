@@ -5,18 +5,21 @@ import emailjs from '@emailjs/browser';
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { EarthCanvas } from '../../components/canvas';
+import { runFireworks } from '../../lib/utils';
 import './Footer.scss';
 
+const initialFormData = {
+  name: '',
+  email: '',
+  message: '',
+};
+
 const Footer = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { username, email, message } = formData;
+  const { name, email, message } = formData;
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
@@ -27,19 +30,32 @@ const Footer = () => {
     e.preventDefault();
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
-
-    //! send email
-
-    // Reset form after 10 seconds
-    setTimeout(() => {
-      setIsFormSubmitted(false);
-    }, 10000);
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          to_name: 'Rabah',
+          from_email: formData.email,
+          to_email: '4rabah@gmail.com',
+          message: formData.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setIsFormSubmitted(true);
+          setLoading(false);
+          runFireworks();
+          setFormData(initialFormData);
+        },
+        error => {
+          setLoading(false);
+          console.log(error);
+          alert('Something went wrong, please try again later! :(');
+        }
+      );
   };
 
   return (
@@ -86,8 +102,8 @@ const Footer = () => {
                   className='p-text'
                   type='text'
                   placeholder='Your Name'
-                  name='username'
-                  value={username}
+                  name='name'
+                  value={name}
                   onChange={handleChangeInput}
                   required
                 />
@@ -117,12 +133,15 @@ const Footer = () => {
               </div>
 
               <button type='submit' className='p-text'>
-                {!loading ? 'Send Message' : 'Sending...'}
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           ) : (
-            <div>
+            <div className='app__footer-msg-submitted'>
               <h3 className='head-text'>Thanks for getting in touch!</h3>
+              <p className='p-text' onClick={() => setIsFormSubmitted(false)}>
+                Send another message!
+              </p>
             </div>
           )}
         </motion.div>
