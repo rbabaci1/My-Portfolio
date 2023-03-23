@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { BallCanvas } from '../canvas';
+import { BallCanvas } from '../../components/canvas';
 import { techs } from '../../constants';
 import './Techs.scss';
 
 const Techs = () => {
   return (
-    <div className='app__flex'>
+    <div className='app__flex app__techs'>
       <motion.div className='app__skills-list'>
         {techs.map((icon, i) => (
           <motion.div

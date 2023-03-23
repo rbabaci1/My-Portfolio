@@ -12,8 +12,12 @@ const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+
+    // fetch the projects data from sanity.io
     const query = '*[_type == "projects"]';
 
     client.fetch(query).then(data => {
@@ -68,9 +72,10 @@ const Portfolio = () => {
         {filteredProjects.map((project, index) => (
           <Tilt
             className='app__project-item app__flex'
-            scale={1.1}
+            scale={isMobile ? 1 : 1.1}
             transitionSpeed={500}
             key={`${project.title}-${index}`}
+            tiltEnable={!isMobile}
           >
             <div className='app__project-img app__flex'>
               <img src={urlFor(project.imgUrl)} alt={project.title} />

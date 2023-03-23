@@ -4,13 +4,16 @@ import Tilt from 'react-parallax-tilt';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import Techs from '../../components/Techs/Techs';
 import './About.scss';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+
+    // fetch the abouts data from sanity.io
     const query = '*[_type == "abouts"]';
 
     client.fetch(query).then(data => {
@@ -40,9 +43,10 @@ const About = () => {
         {abouts.map((about, index) => (
           <Tilt
             key={`${about.title}-${index}`}
-            scale={1.1}
+            scale={isMobile ? 1 : 1.1}
             transitionSpeed={500}
             className='app__profile-item'
+            tiltEnable={!isMobile}
           >
             <img src={urlFor(about.imgUrl)} alt={about.title} />
 
@@ -58,8 +62,6 @@ const About = () => {
           </Tilt>
         ))}
       </div>
-
-      <Techs />
     </>
   );
 };

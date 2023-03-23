@@ -1,7 +1,8 @@
 import {
+  Header,
+  Techs,
   About,
   Footer,
-  Header,
   Experience,
   Testimonial,
   Portfolio,
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <Header />
       <About />
+      <Techs />
       <Portfolio />
       <Experience />
       <Testimonial />
