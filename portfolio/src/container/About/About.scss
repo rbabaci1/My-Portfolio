@@ -30,7 +30,7 @@
 
     @media screen and (max-width: 500px) {
       padding: 3rem 0 0 0;
-      width: 83%;
+      width: 80%;
 
       :nth-child(3) {
         width: 100%;
@@ -81,13 +81,6 @@
   }
 
   @media screen and (max-width: 500px) {
-    width: 100%;
-  }
-
-  @media (hover: none), (pointer: coarse) {
-    /* disable hover animations for touch devices */
-    & {
-      box-shadow: none !important;
-    }
+    width: 80%;
   }
 }

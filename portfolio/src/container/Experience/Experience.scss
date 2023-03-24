@@ -21,8 +21,7 @@
     padding: 0;
 
     .app__exp-header {
-      width: 100%;
-      padding: 0 2rem;
+      width: 80%;
       margin-bottom: 2rem;
     }
   }
@@ -44,10 +43,9 @@
 
   @media screen and (max-width: 500px) {
     width: 100%;
-    padding: 0 2rem;
 
     .vertical-timeline {
-      width: 100%;
+      width: 80%;
     }
   }
 }
